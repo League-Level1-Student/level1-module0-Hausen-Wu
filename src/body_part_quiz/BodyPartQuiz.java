@@ -51,13 +51,16 @@ public class BodyPartQuiz {
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-		int score;
+		int score=0;
 		// 2. Set the size of the window in the initializeGui() method 
-		
 		// 4. Ask the user who this person is and store their answer
-		String pictureNumber[];
-		pictureNumber=new String[4];
-		
+		String name[];
+		name=new String[4];
+		name[0]="arnold";
+		name[1]="jack";
+		name[2]="leonardo";
+		name[3]="morgan";
+				
 		// 5. Check their answer. If they guessed correctly:
 		// -- Tell them they are right and increase the score by 1
 		for(int i=0;i<=4;i++)
@@ -65,22 +68,25 @@ public class BodyPartQuiz {
 			
 		
 			String guess = JOptionPane.showInputDialog("who is this?");
-			if(i==0&&guess.equals("arnold"))
-				System.out.println("correct");
-			
+			if(guess.equals(name[i])) 
+			{
+				
+				score+=1;
+				JOptionPane.showMessageDialog(null, "correct,"+" Your score is "+score);
+				
+			}
+/*			
 			if(i==1&&guess.equals("arnold"))
 				System.out.println("correct");
 			
 			if(i==2&&guess.equals("arnold"))
 				System.out.println("correct");
-			
-			if(guess.equals("arnold")==false)
+			*/
+			if(guess.equals(name[i])==false)
 			{
-				System.out.println("wrong");
-				if(i==0)
-				{
-					//System.out.println(arnold);
-				}
+				//score-=1;
+				JOptionPane.showMessageDialog(null,"wrong,"+" Your score is "+score);
+				JOptionPane.showMessageDialog(null,name[i]);
 			}
 			showNextImage();
 		}
